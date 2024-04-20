@@ -4,6 +4,7 @@ import LeftLogo from "../assets/LeftLogo.png";
 import RightLogo from "../assets/RightLogo.png";
 import CenterLogo from "../assets/centerlogo.png";
 import UserProfile from "../assets/Userprofile.jpeg";
+import { mobile } from "../responsive";
 import { AiOutlineDollarCircle } from "react-icons/ai";
 import { IoSettingsOutline } from "react-icons/io5";
 import { RiCustomerService2Line } from "react-icons/ri";
@@ -12,7 +13,6 @@ import { IoMdExit } from "react-icons/io";
 
 const Container = styled.div`
   background-image: linear-gradient(to right, #ee1d52e3, #002a5ce3);
-  height: 112px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -25,14 +25,17 @@ const Section = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  ${mobile({ height: "80px" })}
 `;
 const LogoSection = styled.div`
   width: 40%;
+  ${mobile({ width: "40% " })}
 `;
 const Logo = styled.img`
   height: 73px;
   width: 115px;
   opacity: 80%;
+  ${mobile({ height: "50px", width: "80px" })}
 `;
 const MidSection = styled.div`
   margin-right: 3rem;
@@ -40,6 +43,7 @@ const MidSection = styled.div`
 const MidLogo = styled.img`
   height: 70px;
   width: 70px;
+  ${mobile({ height: "50px", width: "50px" })}
 `;
 const IconSection = styled.div`
   display: flex;
@@ -55,6 +59,7 @@ const Icons = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  ${mobile({ display: "none" })}
 `;
 const IconOne = styled(AiOutlineDollarCircle)`
   height: 28px;
@@ -88,6 +93,7 @@ const Profile = styled.img`
   width: 44px;
   border-radius: 50%;
   object-fit: cover;
+  ${mobile({ height: "30px", width: "30px" })}
 `;
 const InfoSection = styled.div`
   color: #ffffff;
@@ -96,6 +102,7 @@ const InfoSection = styled.div`
   justify-content: space-between;
   gap: 5px;
   font-family: "Nunito Sans", sans-serif;
+  ${mobile({ display: "none" })}
 `;
 const Name = styled.div`
   font-size: 14px;
@@ -109,11 +116,13 @@ const ExitIcon = styled(IoMdExit)`
   height: 32px;
   width: 32px;
   cursor: pointer;
+  ${mobile({ height: "25px", width: "25px" })}
 `;
 const ShopLogo = styled.img`
   height: 79px;
   width: 87px;
   opacity: 80%;
+  ${mobile({ display: "none" })}
 `;
 
 const Navbar = () => {

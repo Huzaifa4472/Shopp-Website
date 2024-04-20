@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FcGoogle } from "react-icons/fc";
 import { MdVisibilityOff } from "react-icons/md";
-
+import { mobile } from "../responsive";
 const Container = styled.div`
   background-image: linear-gradient(170deg, #ee1d52, #9f2155, #002a5c);
   height: 100vh;
@@ -22,6 +22,7 @@ const Section = styled.div`
   gap: 2rem;
   padding: 3rem 0rem;
   border-radius: 24px;
+  ${mobile({ height: "250px", width: "70%", gap: "1rem" })}
 `;
 const TitleSection = styled.div``;
 const Title = styled.div`
@@ -29,6 +30,8 @@ const Title = styled.div`
   font-weight: 500;
   text-align: center;
   color: #333333;
+
+  ${mobile({ fontSize: "15px" })}
 `;
 const LinkSection = styled.div`
   border: 1px solid #0059c2;
@@ -40,15 +43,21 @@ const LinkSection = styled.div`
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  font-size: 15px;
+  font-weight: 300;
+
+  ${mobile({ fontSize: "10px", width: "65%", padding: "5px 0px", gap: "5px" })}
 `;
 const Icon = styled(FcGoogle)`
   height: 24px;
   width: 24px;
+  @media (max-width: 400px) {
+    height: 10px;
+    width: 10px;
+  }
 `;
 
 const Text = styled.div`
-  font-size: 15px;
-  font-weight: 300;
   color: #333333;
 `;
 const SectionTwo = styled.div`
@@ -57,6 +66,7 @@ const SectionTwo = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  ${mobile({ width: "65%" })}
 `;
 const Underline = styled.div`
   height: 1px;
@@ -66,9 +76,21 @@ const Underline = styled.div`
 const Or = styled.div`
   color: #666666;
   font-size: 20px;
+  ${mobile({ fontSize: "10px" })}
 `;
+const FieldContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1.5rem;
+  ${mobile({ fontSize: "15px", gap: "1rem" })}
+`;
+
 const FieldSection = styled.div`
   width: 55%;
+  ${mobile({ width: "65%" })}
 `;
 const Fields = styled.div`
   border: 1px solid #66666659;
@@ -77,21 +99,25 @@ const Fields = styled.div`
   height: 45px;
   display: flex;
   align-items: center;
+  ${mobile({ height: "30px", borderRadius: "8px" })}
 `;
 const InputField = styled.input`
   width: 98%;
   height: 100%;
   border: none;
   background: transparent;
+  ${mobile({ fontSize: "10px" })}
 `;
 const FieldIcon = styled(MdVisibilityOff)`
   height: 20px;
   width: 20px;
   cursor: pointer;
+  ${mobile({ height: "15px", width: "15px" })}
 `;
 const Message = styled.div`
   color: #ee1d52;
   font-size: 14px;
+  ${mobile({ fontSize: "10px" })}
 `;
 const Button = styled.div`
   display: flex;
@@ -115,12 +141,24 @@ const Button = styled.div`
     background-clip: text;
     transition: all 0.3s ease-in-out;
   }
+  ${mobile({ width: "25%", height: "45px", fontSize: "10px" })}
 `;
 const AccountText = styled.div`
   display: flex;
+  flex-direction: row;
   gap: 5px;
   font-size: 15px;
   font-weight: 300;
+  ${mobile({
+    width: "40%",
+    gap: "0px",
+    fontSize: "10px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    flexDirection: "column",
+  })}
 `;
 const Account = styled.div`
   color: #333333;
@@ -144,30 +182,32 @@ const login = () => {
           <Or>OR</Or>
           <Underline></Underline>
         </SectionTwo>
-        <FieldSection>
-          <Fields>
-            <InputField
-              placeholder="Enter your email address"
-              required
-              autoComplete="off"
-              type="text"
-              id="email"
-            />
-          </Fields>
-        </FieldSection>
-        <FieldSection>
-          <Fields>
-            <InputField
-              placeholder="Enter password"
-              required
-              autoComplete="off"
-              type="text"
-              id="password"
-            />
-            <FieldIcon />
-          </Fields>
-          <Message>Error message</Message>
-        </FieldSection>
+        <FieldContainer>
+          <FieldSection>
+            <Fields>
+              <InputField
+                placeholder="Enter your email address"
+                required
+                autoComplete="off"
+                type="text"
+                id="email"
+              />
+            </Fields>
+          </FieldSection>
+          <FieldSection>
+            <Fields>
+              <InputField
+                placeholder="Enter password"
+                required
+                autoComplete="off"
+                type="text"
+                id="password"
+              />
+              <FieldIcon />
+            </Fields>
+            <Message>Error message</Message>
+          </FieldSection>
+        </FieldContainer>
         <Button>Login</Button>
         <AccountText>
           <Account>Don’t have an account?</Account>
