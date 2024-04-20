@@ -80,7 +80,7 @@ const Dashboard = () => {
         <Header>
           <Text>Dashboard</Text>
           <ButtonArea>
-            <Button href="/cash-in">
+            <Button href="/cashin">
               <IconOne></IconOne>
               <Span>Cash-In</Span>
             </Button>
